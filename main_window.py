@@ -908,6 +908,8 @@ def apply_white_theme(app):
     palette.setColor(QtGui.QPalette.ButtonText, QtGui.QColor(0, 0, 0))  # Black text on buttons
     palette.setColor(QtGui.QPalette.Highlight, QtGui.QColor(173, 216, 230))  # Light blue for highlights
     palette.setColor(QtGui.QPalette.HighlightedText, QtGui.QColor(0, 0, 0))  # Black text for highlighted items
+    palette.setColor(QtGui.QPalette.ButtonText,QtGui.QColor(255,256,255))
+    palette.setColor(QtGui.QPalette.HighlightedText,QtGui.QColor
 
 
         
