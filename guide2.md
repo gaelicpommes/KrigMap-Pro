@@ -143,6 +143,47 @@ Adjacent to the Variogram Parameters widget, the Semivariance Widget displays da
 
 *Figure 11: Semivariance Data Display*
 
+## Advanced Data Analysis and Visualization
+
+After setting up data and variogram parameters, the application offers advanced geostatistical tools like Kriging and various data visualization options.
+
+### 4. Krige Parameters
+
+This widget is designed to configure the settings for generating Kriging plots, which are crucial for spatial interpolation and creating heat maps.
+
+#### Configuration Options:
+
+- **Min Points**: Minimum number of points required for Kriging. Must be greater than 0; otherwise, an error will occur.
+- **Max Points**: Optimally set to 100 to balance detail and processing time. Increasing this number may slow down the generation of the Krige plot.
+- **Levels**: Defines the number of heat levels in the Kriging plot. A default of 30 levels is recommended but can be adjusted as needed to enhance the distinction in heat levels.
+- **Alpha**: Controls the opacity of the Krige plot, with values ranging from 0 (completely transparent) to 1 (completely opaque).
+- **Basemap Checkbox**: When enabled, a satellite image will serve as the base layer beneath the Krige plot, enhancing the contextual understanding of the data.
+- **Uncertainty Map Checkbox**: If checked, alongside the Krige plot, an uncertainty map will be generated in a separate tab, providing insights into the confidence of the interpolated values.
+
+![Krige Parameters](path_to_krige_parameters_image.jpg)
+
+*Figure 12: Krige Parameters Widget*
+
+### 5. Plots Widget
+
+This widget provides tools for visualizing the original data loaded through the "1. Select Excel/CSV File(s)" widget. It offers different types of plots to understand data distribution and relationships.
+
+#### Available Plots:
+
+- **Raw Histogram**: Displays a histogram of the raw data. Below this button, there's an entry box to specify the fraction of data to display, which helps in examining different subsets of the data.
+- **Scatterplot**: Generates a scatterplot to visualize the relationships between different data columns. Similar to the histogram, an entry box allows for specifying the fraction of data to be plotted.
+- **Pairplot**: Offers a comprehensive view by plotting pairwise relationships across all data dimensions.
+
+![Plots Widget](path_to_plots_widget_image.jpg)
+
+*Figure 13: Data Visualization Options in the Plots Widget*
+
 ## Conclusion
 
-Thank you for using our application. Should you have any questions or require further assistance, please refer to our support resources or contact our helpdesk.
+By utilizing these advanced settings and visualization tools, you can perform detailed spatial analysis and better understand the distribution and relationships within your data. These functionalities are designed to support both novice and experienced users in making informed decisions based on spatial data analysis.
+
+
+## Conclusion
+
+Thank you for using our application. Should you have any questions then log in a bug report :3 
+
