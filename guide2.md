@@ -8,7 +8,9 @@ Before diving into the specifics, here's a general overview of the main window.
 
 ### Main Window Overview
 
-![Main Window](path_to_main_window_image.jpg)
+![image](https://github.com/gaelicpommes/krige_python/assets/172756556/4f1a798d-f035-4515-8e38-b38634d69c78)
+
+
 
 *Figure 1: The Main Window of the Application*
 
