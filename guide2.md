@@ -29,7 +29,8 @@ This widget is your starting point for importing data files into the application
 - **Supported File Types**: `.xlsx`, `.xls`, `.csv`
 - **How It Works**: Upon selecting a file, its contents will automatically populate in a scroll area below the button. Note that the file must contain exactly three columns.
 
-![Single File Selection](path_to_single_file_selection_image.jpg)
+![image](https://github.com/gaelicpommes/krige_python/assets/172756556/c6d7c619-19aa-4716-8b5a-89d9359256c7)
+
 
 *Figure 2: Single File Selection Interface*
 
@@ -51,7 +52,8 @@ This window enhances your capability to select and process multiple files simult
 - **Functionality**: Displays loaded files in a tree view format, listing file names alongside their respective column names.
 - **Interaction**: Click the "Select Files(s)" button to choose multiple files as needed.
 
-![File Tree View](path_to_file_tree_view_image.jpg)
+![image](https://github.com/user-attachments/assets/8a367d99-7682-4552-9783-9b5c970eb01f)
+
 
 *Figure 4: Tree View of Files*
 
