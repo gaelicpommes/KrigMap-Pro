@@ -1334,16 +1334,29 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
         """
         current_index = self.tabVariogramPlots.currentIndex()
         if current_index < 0 or current_index >= len(self.plot_parameters):
-            return  # Exit if the index is out of range
+            return
 
         variogram_params = self.plot_parameters[current_index]
         params_text = ""
-        # Iterate through each key and update the display based on whether its checkbox is checked
-        for key in ['estimator', 'model', 'bin_func', 'fit_sigma', 'normalize', 'use_nugget', 'maxlag', 'n_lags', 'fit_method']:
+
+        # Dynamic parameter display based on whether checkboxes are checked
+        parameter_keys = [
+            'estimator', 'model', 'bin_func', 'fit_sigma', 
+            'normalize', 'use_nugget', 'maxlag', 'n_lags', 'fit_method'
+        ]
+
+        for key in parameter_keys:
+            # Check if the checkbox associated with this parameter is checked
             checkbox = self.findChild(QtWidgets.QCheckBox, 'chk' + key.lower())
             if checkbox and checkbox.isChecked():
-                value = f"{float(variogram_params[key]):.1f}" if key in variogram_params else "default"
+                # Only add the parameter to the text if the checkbox is checked
+                if key in ['maxlag', 'n_lags']:  # Numeric values
+                    value = f"{float(variogram_params[key]):.1f}" if key in variogram_params else "default"
+                else:
+                    value = variogram_params.get(key, 'default')
+
                 params_text += f"{key}: {value}\n"
+  
         self.framevariogramparameters.setText(params_text.strip())
         
     def getNextTabIndex(self, baseTitle):
