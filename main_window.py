@@ -125,7 +125,7 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         # Load the user interface from a .ui file designed in Qt Designer
-        uic.loadUi("D:/qute.ui", self)
+        uic.loadUi("D:/main_window.ui", self)
         self.setWindowTitle("Krige Application")  # Set the window title
         self.setupTableWidget(self.excelTableWidget)  # Setup for the main data table
         self.setupTableWidget(self.thresholdTableWidget)  # Setup for the threshold data table
