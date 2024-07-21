@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+seaborn
+scipy
+geopandas
+PyQt5
+contextily
+skgstat
+pykrige
+ipywidgets
