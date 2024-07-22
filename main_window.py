@@ -125,7 +125,7 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         # Load the user interface from a .ui file designed in Qt Designer
-        uic.loadUi("D:/main_window.ui", self)
+        uic.loadUi("D:/qute.ui", self)
         self.setWindowTitle("Krige Application")  # Set the window title
         self.setupTableWidget(self.excelTableWidget)  # Setup for the main data table
         self.setupTableWidget(self.thresholdTableWidget)  # Setup for the threshold data table
@@ -139,10 +139,10 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
 
         # Find and configure the button for selecting multiple files
         self.pushButtonSelectMultiFiles = self.findChild(QtWidgets.QPushButton, 'openmultifiles')
-        if self.pushButtonSelectMultiFiles:
-            self.pushButtonSelectMultiFiles.clicked.connect(self.openSelectFilesUI)
-        else:
-            print("PushButton 'selectmultifiles' not found")
+        #if self.pushButtonSelectMultiFiles:
+            #self.pushButtonSelectMultiFiles.clicked.connect(self.openSelectFilesUI)
+        #else:
+            #print("PushButton 'selectmultifiles' not found")
 
         # Finding and setting up group boxes and their contents
         self.groupBoxSelectFile = self.findChild(QtWidgets.QGroupBox, 'selectexcelfile')
@@ -294,6 +294,10 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
             self.pushButtonScatterPlot.clicked.connect(self.plotScatterPlot)
         else:
             print("Failed to find 'scatterplot' QPushButton.")
+            
+        # Finding QLineEdit widgets associated with the push buttons
+        self.lineEditRawHistogram = self.findChild(QtWidgets.QLineEdit, 'rawhistogramlineedit')
+        self.lineEditScatterPlot = self.findChild(QtWidgets.QLineEdit, 'scatterplotlineedit')
 
         self.pushButtonPairPlot = self.findChild(QtWidgets.QPushButton, 'pairplot')
         if self.pushButtonPairPlot:
@@ -317,6 +321,9 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
         # Connect tab changes in the Variogram plots to update their parameters display
         self.tabVariogramPlots.currentChanged.connect(self.updateVariogramParametersDisplay)
         self.krigePlots.currentChanged.connect(self.updateKrigingParametersDisplay)
+        
+        self.pushButtonSelectMultiFiles.clicked.connect(self.openSelectFilesUI)
+        #self.selectFilesWindow.dataSelected.connect(self.loadDataIntoTable)  # Connect to the dataSelected signal from QtSelectFiles
 
 
     def setupTableWidget(self, tableWidget):
@@ -441,8 +448,9 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
         if isinstance(data, pd.DataFrame):
             print("DataFrame loaded with columns:", data.columns.tolist())  # Output the column names for debugging.
             # If there are exactly three columns, assume these are the correct data format.
-            if data.shape[1] == 3:
+            if not data.empty and data.shape[1] == 3:
                 self.df = data
+                self.setupAndDisplayTable(self.df, self.excelTableWidget)
             # If more than three columns, prompt the user to select the correct columns to use.
             elif data.shape[1] > 3:
                 print("More than three columns found, opening ColumnSelectorDialog...")
@@ -482,24 +490,43 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
         print("Data received:", data)
         # This example method updates the Excel display area with the received data.
         self.updateExcelDisplayArea(data)
-        
+  
     def loadAndDisplayExcel(self):
-        """
-        Opens a file dialog to select an Excel file, loads it, and displays it in the application.
-        """
-        # Open a file dialog to select an Excel file.
-        filePath, _ = QFileDialog.getOpenFileName(self, "Select Excel File", "", "Excel Files (*.xlsx);;All Files (*)")
+        # Open a file dialog to select a file, allowing multiple formats.
+        filePath, _ = QFileDialog.getOpenFileName(self, "Select Data File", "", "Excel Files (*.xlsx *.xls);;CSV Files (*.csv);;All Files (*)")
         if filePath:
             try:
-                # Load the Excel file into a DataFrame.
-                self.df = pd.read_excel(filePath)
+                # Determine the file extension and load data accordingly.
+                if filePath.lower().endswith(('.xlsx', '.xls')):
+                    self.df = pd.read_excel(filePath)
+                elif filePath.lower().endswith('.csv'):
+                    self.df = pd.read_csv(filePath)
+                else:
+                    raise ValueError("Unsupported file format")
+
                 print("File loaded successfully:", filePath)
-                # Load the DataFrame into the table widget.
-                self.loadDataIntoTable(self.df)
+
+                # If the file has more than three columns, prompt the user to select which columns to use.
+                if self.df.shape[1] > 3:
+                    dialog = ColumnSelectorDialog(self.df.columns.tolist(), self)
+                    if dialog.exec_() == QtWidgets.QDialog.Accepted:
+                        selected_columns = dialog.selected_columns()
+                        if len(selected_columns) == 3:
+                            self.df = self.df[selected_columns]
+                            self.setupAndDisplayTable(self.df, self.excelTableWidget)
+                        else:
+                            QtWidgets.QMessageBox.warning(self, "Selection Error", "You must select exactly three columns.")
+                    else:
+                        print("Column selection cancelled.")
+                        return  # Exit the function if the dialog is cancelled
+                else:
+                    # If the file has three or fewer columns, display it directly.
+                    self.setupAndDisplayTable(self.df, self.excelTableWidget)
+
             except Exception as e:
-                # Output an error message if the file could not be loaded.
                 print("Failed to load file:", e)
-                QtWidgets.QMessageBox.warning(self, "File Loading Error", "Failed to load the specified Excel file.")
+                QtWidgets.QMessageBox.warning(self, "File Loading Error", "Failed to load the specified file.")
+
                 
     def saveTableToFile(self, tableWidget, defaultName="data"):
         """
@@ -1368,7 +1395,7 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
         Returns:
         int: A unique index for the new tab.
         """
-        count = 0
+        count = 1
         existing_titles = [self.plotTabWidget.tabText(i) for i in range(self.plotTabWidget.count())]
         # Increment count until a unique title is found
         while f"{baseTitle} {count}" in existing_titles:
