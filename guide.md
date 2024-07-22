@@ -19,8 +19,15 @@ Then the next widget(Figure 6) is 2.Enter Threshold Value, so essentially this i
 ● Essentially each point was marked as unique, and as the function checks each pair of nearby points, it marks points as 'possible duplicate' if they are closer than your defined threshold distance and not already marked.)
 So when you press the Confirm Threshold button, you'll get a dataset which should have lesser rows than original dataset. You can also save this filtered dataset by pressing Save Threshold Data button.
 
-Now the next widgets are the 3.Variogram Parameters and when the Plot Variogram button is pressed then youll get the variogram fit or plot in a tab called Variogram Plot (whatever number), you'll see the Fit Parameters and the Variogram Parameters you use too in the mini windows beside the tab containing the plot.So 
+Now the next widgets are the 3.Variogram Parameters(Figure 7) and when the Plot Variogram button is pressed then youll get the variogram fit or plot in a tab called Variogram Plot (whatever number), you'll see the Fit Parameters and the Variogram Parameters you use too in the mini windows beside the tab containing the plot. So I recommend that the fit_sigma be unticked so that there's no weights in the lag or distance. But its all on your preference, you will change the parameters depending on what you thing is a good fit to the data. Now if you select the fit_method manual(Figure 8), then you can input your own Fit parameters of psill, range,nugget, and then when you press the Plot Variogram button you get your fit.
 
+Then you'll see the 3.Semivariance widget (Figure 9), which you see the np, lags, semivariance associated with the variogram fit. Then the button Save Semivariance Data if you press it then you can save this data.
+
+So then you have the next widget 4.Krige Plot and 4.Krige Parameters, so in 4.Krige Parameters, this is where theres the set parameters, and theres the optional Basemap and Uncertainty Map checkboxes. So if you tick Basemap, then the satellite map of your choosing will appear below the Krige plot(Figure 10). Then if the Uncertainty Map checkbox is ticked, then then the uncertainty map plot will appear in a different plot but with the same number as the associated krige plot so if its krige plot 3 then it uncertainty map 3(Figure 11). 
+
+Now the final widget is the 5.Plots ,which contains a button container 5.Plot Types and the area where the plots will load(Figure 12). So for the buttons Raw Histogram and Scatterplot, theres boxes to add in numbers, these numbers should be decimals, so you can see a fraction of the data(Figure 12),if you put no number then you just see the cleaned dataset(Figure 13). 
+
+So for all the tabs there's this toolbar(Figure 14). So you can pan through the plot, zoom in and out the plot, you can change the width and height of the plot.then in Figure options, you can change the title, the axes titles, the axes min and max, the plots style. And you can save your plot in whatever place in your file.
 
 
 
