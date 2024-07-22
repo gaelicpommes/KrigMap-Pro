@@ -2,11 +2,11 @@
 KrigMap-Pro is an geostatistical analysis tool designed to facilitate the modeling and visualisation of spatial data through variogram and Kriging techniques. This tool is specifically tailored for mapping radioactivity concentrations across geographical regions using UTM coordinates. It has a understandable graphical user interface, allowing users to adjust variogram and Kriging parameters dynamically without delving into code.
 
 ## Features
-- **Variogram Modeling**: Configure and customize the variogram model parameters to fit the spatial structure of your data.
+- **Variogram Modeling**: Configure and customise the variogram model parameters to fit the spatial structure of your data.
 - **Kriging Estimation**: Perform Kriging to predict and interpolate unknown values based on the spatial correlation described by the variogram.
-- **Interactive Maps**: View and interact with geographical data overlays on satellite maps.
-- **Flexible Data Handling**: Easily import and manage your spatial data using an integrated GUI.
-- **Plotting**: Generate and customize plots directly within the application to visualize data and analysis results.
+- **Interactive Maps**: View the Krige plot on top of satellite maps.
+- **Flexible Data Handling**: Easily import and manage your spatial data using the GUI.
+- **Plotting**: Generate and customise plots directly within the application to visualise data and analysis results.
 
 ## Getting Started
 
