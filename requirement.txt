@@ -10,4 +10,3 @@ skgstat
 pykrige
 ipywidgets
 
-#open command prompt or anacondo prompt and type pip install -r requirements.txt
