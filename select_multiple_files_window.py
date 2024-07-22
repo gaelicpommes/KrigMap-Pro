@@ -38,7 +38,7 @@ class QtSelectFiles(QMainWindow):
         super().__init__()
 
         # Load the user interface from a file
-        uic.loadUi("D:/select_multiple_files_window.ui", self)
+        uic.loadUi("D:/queet.ui", self)
         
         # Set the title of the window to "Select Files"
         self.setWindowTitle("Select Files")  
@@ -431,36 +431,40 @@ class QtSelectFiles(QMainWindow):
 ###########################Selection Confirmation and Data Emission##################
 
     def confirmSelection(self):
-        # Print a message to indicate that the "Confirm" button has been clicked
         print("Confirmation button clicked")
-
-        # Create an empty list to store DataFrames that will be combined later
-        frames = []
-
-        # Retrieve selected column names from the comboboxes for longitude, latitude, and results
         selected_columns = [
-            self.LonColCombo.currentText(),
-            self.LatColCombo.currentText(),
-            self.ResultColCombo.currentText()
+            ('Longitude', self.LonColCombo.currentText()),
+            ('Latitude', self.LatColCombo.currentText()),
+            ('Results', self.ResultColCombo.currentText())
         ]
 
-        # Loop through each DataFrame loaded into the application
-        for df in self.dataFrames:
-            # Check if all selected columns are present in the current DataFrame
-            if all(col in df.columns for col in selected_columns):
-                # If present, select these columns from the DataFrame and add the resulting DataFrame to the list
-                frames.append(df[selected_columns])
+        relevant_files = []
+        aggregated_data = {label: [] for _, label in selected_columns}
 
-        # After processing all DataFrames, check if we have any DataFrames in our list
-        if frames:
-            # Concatenate all collected DataFrames into one, ignoring the original indexing
-            aggregated_df = pd.concat(frames, ignore_index=True)
-            # Emit the concatenated DataFrame using the defined signal to notify other parts of the application
+        # Iterate over each DataFrame loaded from files
+        for idx, df in enumerate(self.dataFrames):
+            if any(col in df.columns for _, col in selected_columns):
+                relevant_files.append(f"File {idx + 1}: {self.fileInfo[idx]}")
+                # Gather data from the DataFrame for selected columns
+                for _, col_name in selected_columns:
+                    if col_name in df.columns:
+                        aggregated_data[col_name].extend(df[col_name].tolist())
+
+        # Find the shortest list length to standardize the length of all columns
+        min_length = min(len(lst) for lst in aggregated_data.values())
+
+        # Trim all lists in aggregated_data to the shortest length
+        for key in aggregated_data:
+            aggregated_data[key] = aggregated_data[key][:min_length]
+
+        # Create a DataFrame from the standardized aggregated data
+        try:
+            aggregated_df = pd.DataFrame(aggregated_data)
+            print("DataFrame displayed in 'Selected Data':")
+            print(aggregated_df)
             self.dataSelected.emit(aggregated_df)
-        else:
-            # If no columns matched in any DataFrame, print a message and emit an empty DataFrame
-            print("No matching data found in any loaded files.")
-            self.dataSelected.emit(pd.DataFrame())
+        except Exception as e:
+            print("Error while creating DataFrame:", e)
 
 ################Utility Functions##################
 
