@@ -38,7 +38,7 @@ class QtSelectFiles(QMainWindow):
         super().__init__()
 
         # Load the user interface from a file
-        uic.loadUi("D:/queet.ui", self)
+        uic.loadUi("D:/select_multiple_files.ui", self)
         
         # Set the title of the window to "Select Files"
         self.setWindowTitle("Select Files")  
