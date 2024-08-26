@@ -1,12 +1,19 @@
-numpy
+PyQt5
+PyQtWebEngine
 pandas
+geopandas
+shapely
+pyproj
+scipy
+scikit-learn
+scikit-gstat
 matplotlib
 seaborn
-scipy
-geopandas
-PyQt5
 contextily
-skgstat
-pykrige
+folium
 ipywidgets
+plotly
+pykrige
+rasterio
+numpy
 
