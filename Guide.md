@@ -21,6 +21,7 @@ Upon launching the application, you are presented with a main window organized i
 The main window, 'KrigeMapPro', displays five primary widgets. Here is the layout:
 
 ![KrigeMapPro Interface](images/fig1.png)
+
 *Figure 3: KrigeMapPro Interface*
 
 ### Select File
@@ -31,9 +32,11 @@ The main window, 'KrigeMapPro', displays five primary widgets. Here is the layou
   - **Flexible Data Handling**: Supports various formats with geographic coordinates and results in WGS84 format.
 
 ![Select File Widget](images/fig2a.png)
+
 *Figure 4 (Left): Select File widget without any file loaded*
 
 ![Loaded File Display](images/fig2b.png)
+
 *Figure 4 (Right): Select File widget with a sample .xlsx file loaded*
 
 ### Enter Threshold Value
@@ -44,9 +47,11 @@ The main window, 'KrigeMapPro', displays five primary widgets. Here is the layou
   - Adjust the threshold to see the impact on data quality and quantity directly in the interface.
 
 ![Threshold Adjustment](images/fig6a.png)
+
 *Figure 7 (Left): Sample data after applying a 0.01m threshold*
 
 ![Data Reduction](images/fig6b.png)
+
 *Figure 7 (Right): Sample data after a 0.4m threshold*
 
 ### Variogram
@@ -57,6 +62,7 @@ The main window, 'KrigeMapPro', displays five primary widgets. Here is the layou
   - **Interactive Semivariogram Plot**: View and modify semivariograms based on your data and parameters.
 
 ![Semivariogram Plot](images/fig7.png)
+
 *Figure 8: Illustration of the 3.Variogram widget with a semivariogram created from sample threshold data*
 
 ### Krige Plot
@@ -67,6 +73,7 @@ The main window, 'KrigeMapPro', displays five primary widgets. Here is the layou
   - **Satellite Imagery Overlay**: Enhance geographical context by overlaying maps on the Krige plot.
 
 ![Krige Plot](images/fig9b.png)
+
 *Figure 10: Krige Plot widget demonstrating a sample semivariogram*
 
 ### Plots
