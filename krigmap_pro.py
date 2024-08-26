@@ -1,3 +1,4 @@
+#this is the main app, this is what you the user run
 import os
 import sys
 from pathlib import Path
