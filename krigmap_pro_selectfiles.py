@@ -1,3 +1,4 @@
+#make sure that this file is in the same directory or folder as the krigmap_pro.py
 import sys  # System-specific parameters and functions
 from itertools import zip_longest
 import os
