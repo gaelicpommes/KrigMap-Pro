@@ -16,4 +16,5 @@ plotly
 pykrige
 rasterio
 numpy
+folium
 
