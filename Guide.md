@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to our geostatistical analysis application! Designed with user experience in focus, this tool integrates the PyQt5 framework to offer an intuitive environment for managing and analyzing spatial data. Here's a quick guide on how to get started and make the most of the application's features.
+Welcome to KrigMapPro ! Designed with user experience in focus, this tool integrates the PyQt5 framework to offer an intuitive environment for managing and analyzing spatial data. Here's a quick guide on how to get started and make the most of the application's features.
 
 ## Getting Started
 
