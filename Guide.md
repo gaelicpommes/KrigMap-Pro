@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to our geostatistical analysis application! Designed with user experience in focus, this tool integrates the robust PyQt5 framework to offer an intuitive environment for managing and analyzing spatial data. Here's a quick guide on how to get started and make the most of the application's features.
+Welcome to our geostatistical analysis application! Designed with user experience in focus, this tool integrates the PyQt5 framework to offer an intuitive environment for managing and analyzing spatial data. Here's a quick guide on how to get started and make the most of the application's features.
 
 ## Getting Started
 
@@ -38,6 +38,51 @@ The main window, 'KrigeMapPro', displays five primary widgets. Here is the layou
 ![Loaded File Display](images/fig2b.png)
 
 *Figure 4 (Right): Select File widget with a sample .xlsx file loaded*
+
+#### Advanced Column Selection
+
+If a loaded file contains more than three columns, a window prompts the user to specify which columns correspond to Longitude, Latitude, and Results. This ensures that the data is correctly interpreted by the application for geostatistical analysis.
+
+![More Than Three Columns](images/fileloadmorethanthree.png)
+
+*Figure 5 (Left): Window pop-up if the file loaded has more than three columns*
+
+#### Applying Mathematical Operations
+
+After selecting the relevant columns, users have the option to manipulate the results data by applying mathematical operations. This feature is accessible through the "Multiply Result" button, which opens a new window where users can select result rows and apply operations such as addition, subtraction, multiplication, or division to adjust data units as needed.
+
+![Apply Operations](images/fileloadapplyop.png)
+
+*Figure 5 (Right): Window pop-up for applying mathematical operations to result columns*
+
+
+### File Selection Buttons
+
+
+In the **Select File** widget, there are two main options for file handling, enhancing flexibility for users based on their data needs:
+
+- **Open One File**: A straightforward option for loading individual datasets.
+- **Open Multi Files**: Allows for the aggregation of data from multiple sources, useful for handling larger datasets.
+
+#### Detailed View
+
+Upon selecting **Open Multi Files**, a new window appears, providing advanced options for handling multiple file inputs:
+
+![Select Files Window](images/fig3.png)
+*Figure 6(a): Select Files window without files loaded*
+
+Users can specify column names in one of two ways:
+
+- **Select Column Names**: Use this option if the loaded files have consistent column names for Longitude, Latitude, and Results.
+- **Select Multiple Column Names**: Choose this option if you wish to assign different column names for Longitude, Latitude, and Results from various files.
+
+![Select Column Names](images/fig4.png)
+*Figure 6(b): Using Select Column Names for consistent file columns*
+
+![Select Multiple Column Names](images/fig5.png)
+*Figure 6(c): Using Select Multiple Column Names for varied file columns*
+
+These options ensure that users can accurately manage and utilize their spatial data regardless of the initial data configuration, streamlining the process for more complex analyses.
 
 ### Enter Threshold Value
 
@@ -84,14 +129,16 @@ The main window, 'KrigeMapPro', displays five primary widgets. Here is the layou
   - **Pair Plots**: Examine pairwise relationships within your dataset.
 
 ![Histogram Example](images/fig10.png)
+
 *Figure 11 (Left): Raw Histogram created from sample threshold data*
 
 ![Scatter Plot on Map](images/fig11.png)
+
 *Figure 11 (Right): Illustration of a scatterplot overlaid with Esri.World Imagery map*
 
 ## Conclusion
 
-This guide should help you navigate through the application smoothly and make effective use of the geostatistical tools provided. Load your data, set your parameters, and start analyzing spatial phenomena with precision and ease.
+This guide should help you navigate through the application smoothly and make effective use of the geostatistical tools provided. Load your data, set your parameters, and start kriging with precision and ease.
 
 
 
