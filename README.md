@@ -12,7 +12,7 @@ KrigMapPro is an geostatistical analysis tool designed to do the modeling and vi
 
 # Getting Started with KrigMapPro
 - Download the KrigMapPro.exe
-- Read the [guide] (https://github.com/gaelicpommes/KrigMap-Pro/blob/d0ea5e8b0ae60443b0eaf7026a8d324632982cfe/KrigMapPro%20Guide.docx) (or be a wildcard and not read it) 
+- Read the guide (https://github.com/gaelicpommes/KrigMap-Pro/blob/d0ea5e8b0ae60443b0eaf7026a8d324632982cfe/KrigMapPro%20Guide.docx) (or be a wildcard and not read it) 
 - Happy Kriging!
 
 
