@@ -237,7 +237,7 @@ class QtSelectFiles(QMainWindow):
         super().__init__(parent)
 
         # Load the user interface from a file
-        uic.loadUi("D:/krigmap_pro_selectfiles.ui", self)
+        uic.loadUi("D:/krigmap_pro_selectfiles.ui", self) ############################CHANGE DIRECTORY######################
         #self.setupUi(self)  # This replaces the direct loading of the .ui file
         
         # Set the title of the window to "Select Files"
