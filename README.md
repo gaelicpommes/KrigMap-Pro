@@ -1,19 +1,49 @@
 
 
-## Overview
-KrigMapPro is an geostatistical analysis tool designed to do the modeling and visualisation of spatial data through Kriging. This tool is for mapping radioactivity concentrations across geographical regions using UTM coordinates. It has an easy-to-use graphical user interface, which allows you to adjust variogram and Kriging parameters dynamically without delving deeply into code.
+## (Optional) Run KrigMapPro Without Creating an `.exe` File
 
-## Features
-- **Variogram Modeling**: Configure and customise the variogram model parameters to fit the spatial structure of your data.
-- **Kriging Estimation**: Perform Kriging to predict and interpolate unknown values based on the spatial correlation described by the variogram.
-- **Interactive Maps**: View the Krige plot on top of satellite maps.
-- **Flexible Data Handling**: Easily import and manage your spatial data using the GUI.
-- **Plotting**: Generate and customise plots directly within the application to visualise data and analysis results.
+If you don’t want to build the executable, you can run KrigMapPro directly from the Python source code.
 
-# Getting Started with KrigMapPro
-- Download the KrigMapPro.exe
-- Read the KrigMapPro Guide.docx (or be a wildcard and not read it) 
-- Happy Kriging!
+
+1. **Download the following files** into a folder or directory of your choice:
+   - `krigmap_pro.py`
+   - `krigmap_pro_selectfiles.py`
+   - `krigmap_pro_ui_files.zip`
+   - `example_data.zip`
+   - `requirement.txt`
+
+2. **Unzip** both `krigmap_pro_ui_files.zip` and `example_data.zip` in the same folder.
+
+3. **Edit UI file paths in the code**:
+   - Open `krigmap_pro.py` in your Python editor (I personally use Spyder).
+   - Go to **line 217**, and replace:
+     ```python
+     uic.loadUi("D:/krigmap_pro.ui", self)
+     ```
+     with the path to where your own `krigmap_pro.ui` file is located (after unzipping).
+
+   - Then open `krigmap_pro_selectfiles.py`.
+   - Go to **line 240**, and replace:
+     ```python
+     uic.loadUi("D:/krigmap_pro_selectfiles.ui", self)
+     ```
+     with the correct path to your unzipped `krigmap_pro_selectfiles.ui` file.
+
+4. **Install required Python packages**:
+   - Open a terminal or Anaconda Prompt in the project folder.
+   - Run:
+     ```bash
+     pip install -r requirement.txt
+     ```
+
+5. **Run the application**:
+   - Open `krigmap_pro.py` in your Python editor.
+   - Click **Run**.
+   - The GUI for KrigMapPro will appear, and you're good to go!
+
+---
+
+That’s it! You can now explore KrigMapPro without creating an executable.
 
 
 
