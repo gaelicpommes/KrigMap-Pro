@@ -11,7 +11,7 @@ KrigMapPro is an geostatistical analysis tool designed to do the modeling and vi
 - **Plotting**: Generate and customise plots directly within the application to visualise data and analysis results.
 
 # Getting Started with KrigMapPro
-- Download the KrigMapPro.exe at this Google Drive link (https://drive.google.com/file/d/1SA7lob7Ze1RGNh5xXkaAQ8VlvlmsQwzX/view?usp=drive_link)
+- Download the KrigMapPro.exe at this Google Drive link https://drive.google.com/file/d/1sTzQE3l9m9suKhHhdYrQAUKvSz-Rcpv-/view?usp=sharing
 - Unzip the .zip file and run the .exe file. You may get a Windows Defender popup saying the .exe file is not safe. Ignore this and run the .exe.
 - You will see this terminal and splash image when starting the .exe:
 - ![image](https://github.com/user-attachments/assets/af96c652-592a-4844-84d9-dc45fe187db8)
