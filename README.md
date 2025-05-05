@@ -34,7 +34,7 @@ If you'd like to build the KrigMapPro application yourself, here’s how to do i
    - ![image](https://github.com/user-attachments/assets/37d34e35-ba5f-4440-b13c-12b5c52941d6)
 
 
-9. **Edit the `pyinstaller.txt` file**:
+9. **Edit the `KrigMapPro.spec` file**:
    - Update all file paths (e.g., for `krigappicon.ico`, `krigsplash.jpg`, `krigmap_pro.ui`,`krigmap_pro_selectfiles.ui`, `anaconda3`) to match your system's file structure.
    - For example:
      - Change:
@@ -53,6 +53,10 @@ If you'd like to build the KrigMapPro application yourself, here’s how to do i
        ```
        C:/Users/yourname/anaconda3/...
        ```
+     - ![image](https://github.com/user-attachments/assets/0246afa5-f9c3-4496-8eae-97ee0298e5cd)
+     - ![image](https://github.com/user-attachments/assets/3745f821-13ae-4b4e-97af-726699e05813)
+     - 
+
 
 10. **Run PyInstaller with the `.spec` file**:
    ```bash
