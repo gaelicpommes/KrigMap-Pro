@@ -214,7 +214,7 @@ class ExcelLoaderApp(QtWidgets.QMainWindow):
         super().__init__()
         #self.setupMenus()  # Setup menus and connect actions
         # Load the user interface from a .ui file designed in Qt Designer
-        uic.loadUi("D:/krigmap_pro.ui", self)
+        uic.loadUi("D:/krigmap_pro.ui", self) ############################CHANGE DIRECTORY######################
         #self.setupUi(self) # This replaces the direct loading of the .ui file
         self.setWindowTitle("KrigMap-Pro")  # Set the window title
         self.setupTableWidget(self.excelTableWidget)  # Setup for the main data table
